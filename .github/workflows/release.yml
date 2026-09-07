@@ -1,0 +1,41 @@
+# vX.Y.Z 形式のタグをpushすると、拡張のzipを作ってGitHub Releaseに添付する
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: タグとmanifestのバージョン一致を確認
+        run: |
+          MANIFEST_VERSION=$(jq -r .version manifest.json)
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          if [ "$MANIFEST_VERSION" != "$TAG_VERSION" ]; then
+            echo "manifest.json (${MANIFEST_VERSION}) とタグ (${TAG_VERSION}) が一致しません" >&2
+            exit 1
+          fi
+
+      - name: 拡張パッケージを作成
+        run: |
+          mkdir -p dist/gcal-groups
+          cp manifest.json content.js styles.css dist/gcal-groups/
+          cd dist
+          zip -r "gcal-groups-${GITHUB_REF_NAME}.zip" gcal-groups
+
+      - name: リリースを作成してzipを添付
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            "dist/gcal-groups-${GITHUB_REF_NAME}.zip" \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes
+        env:
+          GH_TOKEN: ${{ github.token }}

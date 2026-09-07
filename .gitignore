@@ -1,0 +1,13 @@
+# パッケージ成果物
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db
+
+# エディタ
+.vscode/
+.idea/
+
+# 依存(将来ビルドツールを入れた場合)
+node_modules/
