@@ -75,6 +75,11 @@ if [ ! -f store/listing.md ]; then echo "NG store/listing.md がない"; fail=1;
   if [ "$len" -gt 132 ] || [ "$len" -eq 0 ]; then echo "NG listing.md: 概要が ${len} 字(1〜132 字)"; fail=1; else echo "OK listing.md 概要 ${len} 字"; fi
 fi
 
+# ---- バージョン整合 ----
+mv=$(jq -r .version manifest.json)
+cv=$(grep -m1 -o -E '^## v[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | sed 's/^## v//')
+if [ "$mv" != "$cv" ]; then echo "NG バージョン不一致: manifest=$mv CHANGELOG=$cv"; fail=1; else echo "OK version $mv"; fi
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
