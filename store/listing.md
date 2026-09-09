@@ -42,7 +42,7 @@ Googleカレンダーで複数のカレンダーを重ねて見ている方向�
 
 ソースコード・不具合報告: https://github.com/Ptaka/gcal-groups
 
-**カテゴリ**: 仕事効率化(Productivity)
+**カテゴリ**: 仕事効率化(Productivity) > ワークフローと計画(Workflow & Planning)
 **言語**: 日本語
 **ストアアイコン**: `icons/icon-128.png`
 **スクリーンショット**: `store/screenshots/01-overview.png` 〜 `04-pin-export.png`(1280×800)
