@@ -67,6 +67,14 @@ fi
 for f in 01-overview 02-toggle 03-manage 04-pin-export; do check_png "store/screenshots/$f.png" 1280 800; done
 check_png store/promo-small.png 440 280
 
+# ---- 掲載文 ----
+if [ ! -f store/listing.md ]; then echo "NG store/listing.md がない"; fail=1; else
+  summary=$(awk '/^<!-- summary-start -->/{f=1;next} /^<!-- summary-end -->/{f=0} f' store/listing.md | tr -d '\n')
+  # wc -m はロケール依存で日本語をバイト数で数えることがあるため python3 で文字数を数える
+  len=$(printf '%s' "$summary" | python3 -c 'import sys; print(len(sys.stdin.read()))')
+  if [ "$len" -gt 132 ] || [ "$len" -eq 0 ]; then echo "NG listing.md: 概要が ${len} 字(1〜132 字)"; fail=1; else echo "OK listing.md 概要 ${len} 字"; fi
+fi
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
