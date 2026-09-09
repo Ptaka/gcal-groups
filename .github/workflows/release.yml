@@ -28,6 +28,7 @@ jobs:
         run: |
           mkdir -p dist/gcal-groups
           cp manifest.json content.js styles.css dist/gcal-groups/
+          mkdir -p dist/gcal-groups/icons && cp icons/*.png dist/gcal-groups/icons/
           cd dist
           zip -r "gcal-groups-${GITHUB_REF_NAME}.zip" gcal-groups
 

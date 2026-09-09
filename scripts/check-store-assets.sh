@@ -39,6 +39,22 @@ for s in 16 32 48 128; do
   fi
 done
 
+# ---- リリース zip の同梱内容(release.yml と同じ手順) ----
+ZIPTMP=$(mktemp -d)
+mkdir -p "$ZIPTMP/gcal-groups"
+cp manifest.json content.js styles.css "$ZIPTMP/gcal-groups/"
+mkdir -p "$ZIPTMP/gcal-groups/icons" && cp icons/*.png "$ZIPTMP/gcal-groups/icons/" 2>/dev/null || true
+(cd "$ZIPTMP" && zip -qr test.zip gcal-groups)
+for f in manifest.json content.js styles.css icons/icon-16.png icons/icon-32.png icons/icon-48.png icons/icon-128.png; do
+  if ! unzip -l "$ZIPTMP/test.zip" | grep -q "gcal-groups/$f"; then echo "NG zip: $f が含まれない"; fail=1; fi
+done
+if unzip -l "$ZIPTMP/test.zip" | grep -q "icon.svg"; then echo "NG zip: icon.svg は同梱しない"; fail=1; fi
+if ! grep -q 'cp icons/\*.png dist/gcal-groups/icons/' .github/workflows/release.yml; then
+  echo "NG release.yml: icons を同梱していない"; fail=1
+fi
+rm -rf "$ZIPTMP"
+echo "OK zip 同梱内容"
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
