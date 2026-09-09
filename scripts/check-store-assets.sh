@@ -31,6 +31,14 @@ if grep -rIl -i "$OLD_ORG" . --exclude-dir=.git --exclude-dir=node_modules --exc
   echo "NG: 移行前の組織名が含まれるファイルがある"; grep -rIl -i "$OLD_ORG" . --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=.agents --exclude-dir=delivery; fail=1
 fi
 
+# ---- アイコン ----
+for s in 16 32 48 128; do check_png "icons/icon-$s.png" "$s" "$s"; done
+for s in 16 32 48 128; do
+  if [ "$(jq -r ".icons[\"$s\"]" manifest.json)" != "icons/icon-$s.png" ]; then
+    echo "NG manifest.json: icons.$s が icons/icon-$s.png でない"; fail=1
+  fi
+done
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
