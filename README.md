@@ -126,3 +126,5 @@ Googleカレンダーのカレンダーを「チーム」「案件」などの�
 - ビルド不要の素のJS/CSSです。ファイルを編集したら `chrome://extensions` で拡張をリロードしてください。
 - リリース: `manifest.json` の `version` を上げて `CHANGELOG.md` を更新し、gitタグ(`v3.15.0` 形式)をpushすると、GitHub Actionsが配布用zipを作成してReleaseに添付します(タグとmanifestのバージョンが一致しないと失敗します)。
 - `docs/images/` のキャプチャはマスキング(予定のぼかし・ダミー名置換)済みのデモ用データです。
+- アイコンは `icons/icon.svg` が原本です。変更したら `scripts/render-icons.sh` で PNG を再生成してください。
+- Chrome Web Store 用の画像と掲載文は `store/` にあります。画像は `scripts/render-store-images.sh` で生成し、`scripts/check-store-assets.sh` で寸法などを検証できます。
