@@ -55,6 +55,14 @@ fi
 rm -rf "$ZIPTMP"
 echo "OK zip 同梱内容"
 
+# ---- プライバシーポリシー ----
+if [ ! -f PRIVACY.md ]; then echo "NG PRIVACY.md がない"; fail=1; else
+  for kw in "chrome.storage.sync" "chrome.storage.local" "外部" "第三者" "Privacy Policy" "github.com/Ptaka/gcal-groups/issues"; do
+    grep -q "$kw" PRIVACY.md || { echo "NG PRIVACY.md: 「$kw」の記載がない"; fail=1; }
+  done
+  echo "OK PRIVACY.md"
+fi
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
