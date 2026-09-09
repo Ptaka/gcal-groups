@@ -63,6 +63,10 @@ if [ ! -f PRIVACY.md ]; then echo "NG PRIVACY.md がない"; fail=1; else
   echo "OK PRIVACY.md"
 fi
 
+# ---- ストア画像 ----
+for f in 01-overview 02-toggle 03-manage 04-pin-export; do check_png "store/screenshots/$f.png" 1280 800; done
+check_png store/promo-small.png 440 280
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
