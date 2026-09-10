@@ -1,8 +1,8 @@
-# プライバシーポリシー — Google Calendar グループ切替
+# プライバシーポリシー — カレンダーグループ切替 for Google Calendar™
 
-最終改定日: 2026-09-09
+最終改定日: 2026-09-10
 
-本拡張機能「Google Calendar グループ切替」(以下「本拡張」)は、Google カレンダーのサイドバーに表示されるカレンダーをグループにまとめ、グループ単位で表示の ON/OFF を切り替えるための Chrome 拡張機能です。本拡張が扱うデータについて、以下のとおり定めます。
+本拡張機能「カレンダーグループ切替 for Google Calendar™」(以下「本拡張」)は、Google カレンダーのサイドバーに表示されるカレンダーをグループにまとめ、グループ単位で表示の ON/OFF を切り替えるための Chrome 拡張機能です。本拡張が扱うデータについて、以下のとおり定めます。
 
 ## 収集・保存するデータ
 
@@ -45,6 +45,10 @@
 
 本ポリシーを変更する場合は、本ページを更新し、最終改定日を改めます。
 
+## 商標
+
+本拡張は Google LLC とは関係のない個人開発のツールです。Google Calendar は Google LLC の商標です。
+
 ## お問い合わせ
 
 https://github.com/Ptaka/gcal-groups/issues
@@ -53,7 +57,7 @@ https://github.com/Ptaka/gcal-groups/issues
 
 ## Privacy Policy (English summary)
 
-"Google Calendar グループ切替" (Google Calendar Group Switcher) stores only its own settings — group names, calendar display names in each group, pinned calendar names, bar position, display mode, active groups, detected calendar names, and onboarding flags — in `chrome.storage.sync` and `chrome.storage.local`. Data in `chrome.storage.sync` may be synced across your Chrome browsers by Google's standard Chrome Sync; the developer never has access to it.
+"カレンダーグループ切替 for Google Calendar™" (Calendar Group Switcher for Google Calendar™) stores only its own settings — group names, calendar display names in each group, pinned calendar names, bar position, display mode, active groups, detected calendar names, and onboarding flags — in `chrome.storage.sync` and `chrome.storage.local`. Data in `chrome.storage.sync` may be synced across your Chrome browsers by Google's standard Chrome Sync; the developer never has access to it.
 
 The extension does not read event titles, details, attendees, or account information. It does not transmit any data to the developer or third parties, and contains no analytics, advertising, or tracking. It runs only on `calendar.google.com` and makes no network requests. The export feature creates a JSON file only when you choose to, saved where you choose. Uninstalling the extension removes all stored data.
 

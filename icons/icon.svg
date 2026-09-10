@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <!-- カレンダー本体 -->
   <rect x="8" y="16" width="112" height="104" rx="20" fill="#ffffff"/>
-  <rect x="8" y="16" width="112" height="104" rx="20" fill="none" stroke="#1a73e8" stroke-width="8"/>
+  <rect x="8" y="16" width="112" height="104" rx="20" fill="none" stroke="#4f46e5" stroke-width="8"/>
   <!-- ヘッダー帯 -->
-  <path d="M8 36 A20 20 0 0 1 28 16 H100 A20 20 0 0 1 120 36 V44 H8 Z" fill="#1a73e8"/>
+  <path d="M8 36 A20 20 0 0 1 28 16 H100 A20 20 0 0 1 120 36 V44 H8 Z" fill="#4f46e5"/>
   <!-- 綴じリング -->
-  <rect x="36" y="6" width="12" height="22" rx="6" fill="#0b57d0"/>
-  <rect x="80" y="6" width="12" height="22" rx="6" fill="#0b57d0"/>
+  <rect x="36" y="6" width="12" height="22" rx="6" fill="#3730a3"/>
+  <rect x="80" y="6" width="12" height="22" rx="6" fill="#3730a3"/>
   <!-- グループチップ 3 本 -->
-  <rect x="24" y="56" width="80" height="14" rx="7" fill="#1a73e8"/>
-  <rect x="24" y="78" width="56" height="14" rx="7" fill="#34a853"/>
-  <rect x="24" y="100" width="68" height="12" rx="6" fill="#fbbc04"/>
+  <rect x="24" y="56" width="80" height="14" rx="7" fill="#f97316"/>
+  <rect x="24" y="78" width="56" height="14" rx="7" fill="#14b8a6"/>
+  <rect x="24" y="100" width="68" height="12" rx="6" fill="#a855f7"/>
 </svg>

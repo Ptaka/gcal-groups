@@ -1,4 +1,4 @@
-# Google Calendar グループ切替
+# カレンダーグループ切替 for Google Calendar™
 
 Googleカレンダーのカレンダーを「チーム」「案件」などのグループにまとめて、ワンクリックで表示を切り替えられるChrome拡張です。
 
