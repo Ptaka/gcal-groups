@@ -4,7 +4,7 @@
 
 ## 目的
 
-「Google Calendar グループ切替」を Chrome Web Store に一般公開(Public)し、利用者がデベロッパーモードなしでインストール・自動更新できるようにする。
+「カレンダーグループ切替 for Google Calendar™」を Chrome Web Store に一般公開(Public)し、利用者がデベロッパーモードなしでインストール・自動更新できるようにする。
 
 ## 前提
 
@@ -59,7 +59,7 @@
 
 `store/listing.md` の項目:
 
-- 名前: Google Calendar グループ切替
+- 名前: カレンダーグループ切替 for Google Calendar™
 - 概要(132 字以内)
 - 詳細説明(README の「こんなときに」「毎日の使いかた」を再構成)
 - カテゴリ: 仕事効率化

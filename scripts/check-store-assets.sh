@@ -80,6 +80,10 @@ mv=$(jq -r .version manifest.json)
 cv=$(grep -m1 -o -E '^## v[0-9]+\.[0-9]+\.[0-9]+' CHANGELOG.md | sed 's/^## v//')
 if [ "$mv" != "$cv" ]; then echo "NG バージョン不一致: manifest=$mv CHANGELOG=$cv"; fail=1; else echo "OK version $mv"; fi
 
+# ---- ブランドガイドライン: 拡張名を Google の商標で始めない ----
+nm=$(jq -r .name manifest.json)
+case "$nm" in Google*|Chrome*|Gmail*) echo "NG manifest.json: name が Google の商標で始まる($nm)"; fail=1;; *) echo "OK name: $nm";; esac
+
 # (以降の Task で検証項目を追加する)
 
 if [ "$fail" -ne 0 ]; then echo "検証失敗"; exit 1; fi
